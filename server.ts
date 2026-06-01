@@ -36,18 +36,15 @@ if (isSupabaseConfigured) {
     console.error("Failed to initialize Supabase client:", error);
   }
 } else {
-  console.log("Supabase keys not found in environment variables. Falling back to in-memory state.");
+  console.log("Supabase credentials missing! SUPABASE_URL length:", supabaseUrl.length, "SUPABASE_ANON_KEY length:", supabaseAnonKey.length);
+  console.log("Falling back to in-memory state.");
 }
 
 // Graceful handler for missing table schemas or database connectivity alerts
 const handleSupabaseError = (operation: string, error: any) => {
-  if (!error) return;
-  const msg = error.message || String(error);
-  if (msg.includes("Could not find the table") || msg.includes("does not exist") || msg.includes("schema cache") || msg.includes("relation")) {
-    console.info(`[Supabase Schema Info] Table for '${operation}' is not yet created in your Supabase database instance. Relying on local in-memory storage fallback.`);
-  } else {
-    console.log(`[Supabase Info] Optional ${operation} sync status:`, msg);
-  }
+  if (!error) return null;
+  console.error(`[Supabase Error] ${operation}:`, error);
+  return error;
 };
 
 // -----------------------------------------------------
@@ -207,9 +204,13 @@ app.post("/api/submissions", async (req, res) => {
   if (isSupabaseConfigured && supabase) {
     try {
       const { error } = await supabase.from("submissions").upsert(record);
-      if (error) handleSupabaseError("submissions (upsert)", error);
+      if (error) {
+        const dbError = handleSupabaseError("submissions (upsert)", error);
+        return res.status(500).json({ error: dbError.message });
+      }
     } catch (e: any) {
       handleSupabaseError("submissions (upsert Exception)", e);
+      return res.status(500).json({ error: e.message });
     }
   }
 
