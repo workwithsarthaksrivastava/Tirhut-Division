@@ -111,289 +111,9 @@ let schemesCache = [
   }
 ];
 
-let submissionsCache = [
-  {
-    id: "sub-muz-pmayg-01",
-    district: "Muzaffarpur",
-    schemeId: "pmayg",
-    month: "April",
-    year: "2026",
-    totalAllocation: 125000000,
-    prevBalance: 15400000,
-    currentRelease: 109600000,
-    expenditureThisMonth: 101200000,
-    cumulativeExpenditure: 116600000,
-    utilizationPercentage: 93.28,
-    targetBeneficiaries: 14500,
-    coveredBeneficiaries: 13820,
-    remainingBeneficiaries: 680,
-    coveragePercentage: 95.31,
-    projectsApproved: 14500,
-    projectsStarted: 13900,
-    projectsCompleted: 11450,
-    projectsDelayed: 180,
-    staffingSanctioned: 45,
-    staffingWorking: 41,
-    staffingVacancies: 4,
-    complaintsReceived: 34,
-    complaintsResolved: 31,
-    complaintsPending: 3,
-    challenges: "Raw material costs of bricks and cement surged slightly in the central blocks. Minor delay due to land registry checks in Musahari block.",
-    remarks: "Excellent progress. Weekly monitoring camps conducted. Completed clusters submitted for certification.",
-    status: "Approved",
-    createdBy: "Muzaffarpur District Officer",
-    createdAt: "2026-04-28T14:32:00Z"
-  },
-  {
-    id: "sub-muz-jjm-01",
-    district: "Muzaffarpur",
-    schemeId: "jjm",
-    month: "April",
-    year: "2026",
-    totalAllocation: 185000000,
-    prevBalance: 42000000,
-    currentRelease: 143000000,
-    expenditureThisMonth: 125800000,
-    cumulativeExpenditure: 147800000,
-    utilizationPercentage: 79.89,
-    targetBeneficiaries: 48000,
-    coveredBeneficiaries: 39500,
-    remainingBeneficiaries: 8500,
-    coveragePercentage: 82.29,
-    projectsApproved: 280,
-    projectsStarted: 265,
-    projectsCompleted: 215,
-    projectsDelayed: 25,
-    staffingSanctioned: 32,
-    staffingWorking: 28,
-    staffingVacancies: 4,
-    complaintsReceived: 56,
-    complaintsResolved: 48,
-    complaintsPending: 8,
-    challenges: "Boring failures encountered in 3 locations in Aurai block due to clay pockets. Contractor replaced to expedite work.",
-    remarks: "On track to achieve universal connection targets by mid-June 2026.",
-    status: "Approved",
-    createdBy: "Muzaffarpur District Officer",
-    createdAt: "2026-04-29T10:15:00Z"
-  },
-  {
-    id: "sub-sit-pmayg-01",
-    district: "Sitamarhi",
-    schemeId: "pmayg",
-    month: "April",
-    year: "2026",
-    totalAllocation: 98000000,
-    prevBalance: 24000000,
-    currentRelease: 74000000,
-    expenditureThisMonth: 78500000,
-    cumulativeExpenditure: 82500000,
-    utilizationPercentage: 84.18,
-    targetBeneficiaries: 11000,
-    coveredBeneficiaries: 9150,
-    remainingBeneficiaries: 1850,
-    coveragePercentage: 83.18,
-    projectsApproved: 11000,
-    projectsStarted: 10400,
-    projectsCompleted: 8120,
-    projectsDelayed: 410,
-    staffingSanctioned: 35,
-    staffingWorking: 29,
-    staffingVacancies: 6,
-    complaintsReceived: 45,
-    complaintsResolved: 38,
-    complaintsPending: 7,
-    challenges: "Labor migration peak observed. A few beneficiaries delayed start due to harvesting season obligations.",
-    remarks: "Aggressive visual reviews initiated. Work speed recovering under Special Block Supervisors.",
-    status: "Approved",
-    createdBy: "Sitamarhi District Officer",
-    createdAt: "2026-04-27T09:12:00Z"
-  },
-  {
-    id: "sub-sit-jjm-01",
-    district: "Sitamarhi",
-    schemeId: "jjm",
-    month: "April",
-    year: "2026",
-    totalAllocation: 110000000,
-    prevBalance: 12000000,
-    currentRelease: 98000000,
-    expenditureThisMonth: 65000000,
-    cumulativeExpenditure: 72000000,
-    utilizationPercentage: 65.45,
-    targetBeneficiaries: 30000,
-    coveredBeneficiaries: 21500,
-    remainingBeneficiaries: 8500,
-    coveragePercentage: 71.67,
-    projectsApproved: 195,
-    projectsStarted: 160,
-    projectsCompleted: 98,
-    projectsDelayed: 45,
-    staffingSanctioned: 24,
-    staffingWorking: 20,
-    staffingVacancies: 4,
-    complaintsReceived: 78,
-    complaintsResolved: 55,
-    complaintsPending: 23,
-    challenges: "Water table depth variations. Contractor quality issues in Dumra block resulted in slow progress and complaints.",
-    remarks: "Warning letters issued to 2 contracting agencies. Daily oversight escalated.",
-    status: "Under Review",
-    createdBy: "Sitamarhi District Officer",
-    createdAt: "2026-04-29T16:45:00Z"
-  },
-  {
-    id: "sub-vsh-pmayg-01",
-    district: "Vaishali",
-    schemeId: "pmayg",
-    month: "April",
-    year: "2026",
-    totalAllocation: 105000000,
-    prevBalance: 9800000,
-    currentRelease: 95200000,
-    expenditureThisMonth: 91500000,
-    cumulativeExpenditure: 96800000,
-    utilizationPercentage: 92.19,
-    targetBeneficiaries: 13200,
-    coveredBeneficiaries: 12690,
-    remainingBeneficiaries: 510,
-    coveragePercentage: 96.14,
-    projectsApproved: 13200,
-    projectsStarted: 12900,
-    projectsCompleted: 11800,
-    projectsDelayed: 90,
-    staffingSanctioned: 38,
-    staffingWorking: 36,
-    staffingVacancies: 2,
-    complaintsReceived: 18,
-    complaintsResolved: 17,
-    complaintsPending: 1,
-    challenges: "None of significance. Normal operations progressing efficiently.",
-    remarks: "Top performing district for housing progress in April. Public satisfaction is high.",
-    status: "Approved",
-    createdBy: "Vaishali District Officer",
-    createdAt: "2026-04-26T11:00:00Z"
-  },
-  {
-    id: "sub-ech-mgnrega-01",
-    district: "East Champaran",
-    schemeId: "mgnrega",
-    month: "April",
-    year: "2026",
-    totalAllocation: 195000000,
-    prevBalance: 35000000,
-    currentRelease: 160000000,
-    expenditureThisMonth: 172000000,
-    cumulativeExpenditure: 179000000,
-    utilizationPercentage: 91.79,
-    targetBeneficiaries: 65000,
-    coveredBeneficiaries: 60200,
-    remainingBeneficiaries: 4800,
-    coveragePercentage: 92.62,
-    projectsApproved: 1120,
-    projectsStarted: 1050,
-    projectsCompleted: 915,
-    projectsDelayed: 65,
-    staffingSanctioned: 60,
-    staffingWorking: 54,
-    staffingVacancies: 6,
-    complaintsReceived: 92,
-    complaintsResolved: 86,
-    complaintsPending: 6,
-    challenges: "Biometric authentication failed in 3 remote wards due to network downtime. Alternates enabled.",
-    remarks: "Pond excavation and plantation blocks heavily mobilized during dry month.",
-    status: "Approved",
-    createdBy: "East Champaran District Officer",
-    createdAt: "2026-04-28T18:10:00Z"
-  },
-  {
-    id: "sub-shr-pmayg-01",
-    district: "Sheohar",
-    schemeId: "pmayg",
-    month: "April",
-    year: "2026",
-    totalAllocation: 38000000,
-    prevBalance: 12000000,
-    currentRelease: 26000000,
-    expenditureThisMonth: 17500000,
-    cumulativeExpenditure: 21500000,
-    utilizationPercentage: 56.58,
-    targetBeneficiaries: 4200,
-    coveredBeneficiaries: 2950,
-    remainingBeneficiaries: 1250,
-    coveragePercentage: 70.24,
-    projectsApproved: 4200,
-    projectsStarted: 3800,
-    projectsCompleted: 2400,
-    projectsDelayed: 520,
-    staffingSanctioned: 18,
-    staffingWorking: 11,
-    staffingVacancies: 7,
-    complaintsReceived: 31,
-    complaintsResolved: 20,
-    complaintsPending: 11,
-    challenges: "Severe lack of technical staff (Junior Engineers vacant). Project mapping stalled in most parts.",
-    remarks: "Requested Commissioner Office for temporary deputation of 2 Assistant Engineers from Muzaffarpur.",
-    status: "Rejected",
-    createdBy: "Sheohar District Officer",
-    createdAt: "2026-04-28T15:40:00Z"
-  }
-];
-
-let notificationsCache = [
-  {
-    id: "notif-01",
-    type: "Critical",
-    message: "Housing projects in Sheohar are heavily delayed by high vacant staff positions (7 vacancies out of 18 vacant positions).",
-    district: "Sheohar",
-    schemeName: "PMAY-G",
-    timestamp: "2026-05-01T08:00:00Z",
-    read: false
-  },
-  {
-    id: "notif-02",
-    type: "Warning",
-    message: "Jal Jeevan Mission utilization in Sitamarhi is below 70% of allocations. Accelerated intervention suggested.",
-    district: "Sitamarhi",
-    schemeName: "JJM",
-    timestamp: "2026-05-01T09:30:00Z",
-    read: false
-  },
-  {
-    id: "notif-03",
-    type: "Information",
-    message: "Muzaffarpur successfully submitted full housing reports for April 2026 with a 93% utilization rate.",
-    district: "Muzaffarpur",
-    schemeName: "PMAY-G",
-    timestamp: "2026-05-01T10:15:00Z",
-    read: true
-  }
-];
-
-let auditLogsCache = [
-  {
-    id: "log-01",
-    username: "muzaffarpur_officer",
-    action: "Data Submission",
-    details: "April 2026 report for scheme PMAY-G submitted with allocation of 12.5 Cr and 93% utilization.",
-    timestamp: "2026-04-28T14:32:00Z",
-    ipAddress: "10.128.32.41"
-  },
-  {
-    id: "log-02",
-    username: "sitamarhi_officer",
-    action: "Edit Draft",
-    details: "Modified physical progress values on JJM April 2026 workspace.",
-    timestamp: "2026-04-29T16:40:00Z",
-    ipAddress: "10.128.33.12"
-  },
-  {
-    id: "log-03",
-    username: "commissioner_admin",
-    action: "Approval Action",
-    details: "Approved April 2026 submission for PMAY-G - Muzaffarpur.",
-    timestamp: "2026-05-01T08:50:00Z",
-    ipAddress: "10.128.1.100"
-  }
-];
+let submissionsCache: any[] = [];
+let notificationsCache: any[] = [];
+let auditLogsCache: any[] = [];
 
 // -----------------------------------------------------
 // FULL-STACK CRUD API ROUTES
@@ -404,7 +124,7 @@ app.get("/api/schemes", async (req, res) => {
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase.from("schemes").select("*");
-      if (!error && data && data.length > 0) {
+      if (!error && data) {
         return res.json(data);
       }
       if (error) handleSupabaseError("schemes (read)", error);
@@ -459,7 +179,7 @@ app.get("/api/submissions", async (req, res) => {
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase.from("submissions").select("*");
-      if (!error && data && data.length > 0) {
+      if (!error && data) {
         return res.json(data);
       }
       if (error) handleSupabaseError("submissions (read)", error);
@@ -517,7 +237,7 @@ app.get("/api/notifications", async (req, res) => {
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase.from("notifications").select("*").order("timestamp", { ascending: false });
-      if (!error && data && data.length > 0) {
+      if (!error && data) {
         return res.json(data);
       }
       if (error) handleSupabaseError("notifications (read)", error);
@@ -562,7 +282,7 @@ app.get("/api/audit-logs", async (req, res) => {
   if (isSupabaseConfigured && supabase) {
     try {
       const { data, error } = await supabase.from("audit_logs").select("*").order("timestamp", { ascending: false });
-      if (!error && data && data.length > 0) {
+      if (!error && data) {
         return res.json(data);
       }
       if (error) handleSupabaseError("audit_logs (read)", error);

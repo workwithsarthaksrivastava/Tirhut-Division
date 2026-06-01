@@ -9,7 +9,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { MonthlyProgress, Scheme } from "../types";
+import { MonthlyProgress, Scheme, ALL_YEARS, ALL_MONTHS } from "../types";
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -54,8 +54,8 @@ export default function DistrictComparison({
     setSelectedYear(globalYear);
   }, [globalMonth, globalYear]);
 
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const years = ["2025", "2026", "2027"];
+  const months = ALL_MONTHS;
+  const years = ALL_YEARS;
 
   // Helper to compute metrics for a specific district
   const getDistrictPerformance = (distName: string) => {
@@ -101,16 +101,7 @@ export default function DistrictComparison({
         isMocked: false
       };
     } else {
-      // Intelligent mock fallbacks mapped to standard district historical indices
-      const baseValues: Record<string, any> = {
-        "Muzaffarpur": { fundUtilization: 82, beneficiaryCover: 85, projectDelivery: 80, staffOccupancy: 88, grievanceResolve: 84 },
-        "Sitamarhi": { fundUtilization: 72, beneficiaryCover: 78, projectDelivery: 74, staffOccupancy: 81, grievanceResolve: 79 },
-        "Sheohar": { fundUtilization: 68, beneficiaryCover: 74, projectDelivery: 70, staffOccupancy: 85, grievanceResolve: 80 },
-        "East Champaran": { fundUtilization: 78, beneficiaryCover: 82, projectDelivery: 76, staffOccupancy: 83, grievanceResolve: 81 },
-        "West Champaran": { fundUtilization: 71, beneficiaryCover: 76, projectDelivery: 72, staffOccupancy: 80, grievanceResolve: 75 },
-        "Vaishali": { fundUtilization: 88, beneficiaryCover: 90, projectDelivery: 84, staffOccupancy: 91, grievanceResolve: 88 },
-      };
-      const defaults = baseValues[distName] || { fundUtilization: 75, beneficiaryCover: 80, projectDelivery: 75, staffOccupancy: 85, grievanceResolve: 80 };
+      const defaults = { fundUtilization: 0, beneficiaryCover: 0, projectDelivery: 0, staffOccupancy: 0, grievanceResolve: 0 };
       return {
         ...defaults,
         recordCount: 0,

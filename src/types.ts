@@ -86,3 +86,10 @@ export interface SchemeNotification {
   timestamp: string;
   read: boolean;
 }
+
+export const ALL_YEARS: string[] = Array.from({ length: 2150 - 1950 + 1 }, (_, i) => String(1950 + i));
+export const ALL_MONTHS: string[] = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+

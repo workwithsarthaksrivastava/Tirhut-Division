@@ -21,7 +21,7 @@ import {
   AreaChart,
   Area,
 } from "recharts";
-import { MonthlyProgress, Scheme } from "../types";
+import { MonthlyProgress, Scheme, ALL_MONTHS, ALL_YEARS } from "../types";
 import { TrendingUp, Award, Activity, Heart, ChevronDown, AlertTriangle, Calendar, ClipboardCopy, DollarSign } from "lucide-react";
 
 interface TirhutChartsProps {
@@ -62,16 +62,14 @@ export default function TirhutCharts({
   });
 
   // 2. Line Chart Data: Monthly beneficiary coverage trend (using Muzaffarpur or accumulated)
-  const months = ["January", "February", "March", "April", "May", "June"];
+  const months = ALL_MONTHS;
   const lineData = months.map((m) => {
     const records = submissions.filter((s) => s.month === m && s.year === selectedYear && s.status === "Approved");
     const totalCovered = records.reduce((sum, r) => sum + r.coveredBeneficiaries, 0);
     const totalTarget = records.reduce((sum, r) => sum + r.targetBeneficiaries, 0);
 
-    // If month data is empty, mock sequential progress to keep line elegant
-    const multiplier = m === "January" ? 0.7 : m === "February" ? 0.76 : m === "March" ? 0.82 : m === "April" ? 0.88 : m === "May" ? 0.92 : 0.96;
-    const computedCovered = totalCovered > 0 ? totalCovered : Math.round(180000 * multiplier);
-    const computedTarget = totalTarget > 0 ? totalTarget : 220000;
+    const computedCovered = totalCovered;
+    const computedTarget = totalTarget;
 
     return {
       name: m.substring(0, 3),
@@ -84,23 +82,23 @@ export default function TirhutCharts({
   // Average across all approved submissions for current month
   const avgUtilization = activeRecords.length > 0
     ? activeRecords.reduce((sum, r) => sum + r.utilizationPercentage, 0) / activeRecords.length
-    : 78.5;
+    : 0;
 
   const avgCoverage = activeRecords.length > 0
     ? activeRecords.reduce((sum, r) => sum + r.coveragePercentage, 0) / activeRecords.length
-    : 81.2;
+    : 0;
 
-  const totalProjects = activeRecords.reduce((sum, r) => sum + r.projectsApproved, 0) || 1200;
-  const completedProjects = activeRecords.reduce((sum, r) => sum + r.projectsCompleted, 0) || 945;
-  const projectTimeliness = totalProjects > 0 ? (completedProjects / totalProjects) * 100 : 79;
+  const totalProjects = activeRecords.reduce((sum, r) => sum + r.projectsApproved, 0) || 0;
+  const completedProjects = activeRecords.reduce((sum, r) => sum + r.projectsCompleted, 0) || 0;
+  const projectTimeliness = totalProjects > 0 ? (completedProjects / totalProjects) * 100 : 0;
 
-  const totalSanctioned = activeRecords.reduce((sum, r) => sum + r.staffingSanctioned, 0) || 120;
-  const totalWorking = activeRecords.reduce((sum, r) => sum + r.staffingWorking, 0) || 102;
-  const hrOccupancyRatio = totalSanctioned > 0 ? (totalWorking / totalSanctioned) * 100 : 85;
+  const totalSanctioned = activeRecords.reduce((sum, r) => sum + r.staffingSanctioned, 0) || 0;
+  const totalWorking = activeRecords.reduce((sum, r) => sum + r.staffingWorking, 0) || 0;
+  const hrOccupancyRatio = totalSanctioned > 0 ? (totalWorking / totalSanctioned) * 100 : 0;
 
-  const totalComplaints = activeRecords.reduce((sum, r) => sum + r.complaintsReceived, 0) || 300;
-  const resolvedComplaints = activeRecords.reduce((sum, r) => sum + r.complaintsResolved, 0) || 240;
-  const grievanceResolutionRate = totalComplaints > 0 ? (resolvedComplaints / totalComplaints) * 100 : 80;
+  const totalComplaints = activeRecords.reduce((sum, r) => sum + r.complaintsReceived, 0) || 0;
+  const resolvedComplaints = activeRecords.reduce((sum, r) => sum + r.complaintsResolved, 0) || 0;
+  const grievanceResolutionRate = totalComplaints > 0 ? (resolvedComplaints / totalComplaints) * 100 : 0;
 
   const radarData = [
     { subject: "Fund Utilization", value: Math.round(avgUtilization), fullMark: 100 },
@@ -119,7 +117,7 @@ export default function TirhutCharts({
   const GAUGE_COLORS = ["#D97706", "#1E293B"]; // Saffron or Slaty
 
   // 5. Sliding 6-Month Budget vs Expenditure Trend for identifying seasonal bottlenecking
-  const allMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const allMonths = ALL_MONTHS;
   const currentMonthIndex = allMonths.indexOf(selectedMonth);
 
   const sliding6Months = Array.from({ length: 6 }).map((_, i) => {
@@ -138,27 +136,8 @@ export default function TirhutCharts({
     let totalExpenditure = monthSubmissions.reduce((sum, r) => sum + r.cumulativeExpenditure, 0);
 
     if (monthSubmissions.length === 0) {
-      const monthOffset = allMonths.indexOf(monthName);
-      const baseAllocSec = 1750000000; 
-
-      const speedFactor: Record<number, number> = {
-        3: 0.15, // Apr
-        4: 0.22, // May
-        5: 0.30, // Jun
-        6: 0.38, // Jul
-        7: 0.46, // Aug
-        8: 0.55, // Sep
-        9: 0.64, // Oct
-        10: 0.73, // Nov
-        11: 0.82, // Dec
-        0: 0.89,  // Jan
-        1: 0.93,  // Feb
-        2: 0.98   // Mar
-      };
-
-      const factor = speedFactor[monthOffset] !== undefined ? speedFactor[monthOffset] : 0.65;
-      totalAllocation = baseAllocSec;
-      totalExpenditure = baseAllocSec * factor;
+      totalAllocation = 0;
+      totalExpenditure = 0;
     }
 
     return {

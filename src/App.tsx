@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Scheme, MonthlyProgress, UserSession, AuditLog, SchemeNotification } from "./types";
+import { Scheme, MonthlyProgress, UserSession, AuditLog, SchemeNotification, ALL_YEARS, ALL_MONTHS } from "./types";
 import {
   INITIAL_SCHEMES,
   INITIAL_SUBMISSIONS,
@@ -55,10 +55,10 @@ export default function App() {
           fetch("/api/notifications").then(r => r.json()),
           fetch("/api/audit-logs").then(r => r.json())
         ]);
-        if (resSchemes && resSchemes.length > 0) setSchemes(resSchemes);
-        if (resSubmissions && resSubmissions.length > 0) setSubmissions(resSubmissions);
-        if (resNotifications && resNotifications.length > 0) setNotifications(resNotifications);
-        if (resAuditLogs && resAuditLogs.length > 0) setAuditLogs(resAuditLogs);
+        if (resSchemes && Array.isArray(resSchemes)) setSchemes(resSchemes);
+        if (resSubmissions && Array.isArray(resSubmissions)) setSubmissions(resSubmissions);
+        if (resNotifications && Array.isArray(resNotifications)) setNotifications(resNotifications);
+        if (resAuditLogs && Array.isArray(resAuditLogs)) setAuditLogs(resAuditLogs);
       } catch (err) {
         console.warn("Express-Supabase DB sync not initialized yet. Using local fallback cache.", err);
       }
@@ -523,7 +523,7 @@ export default function App() {
                           : "bg-slate-50 border border-slate-200 text-slate-800"
                       }`}
                     >
-                      {["January", "February", "March", "April", "May", "June"].map((m) => (
+                      {ALL_MONTHS.map((m) => (
                         <option key={m} value={m}>
                           {m}
                         </option>
@@ -542,8 +542,11 @@ export default function App() {
                           : "bg-slate-50 border border-slate-200 text-slate-800"
                       }`}
                     >
-                      <option value="2026">2026</option>
-                      <option value="2025">2025</option>
+                      {ALL_YEARS.map((y) => (
+                        <option key={y} value={y}>
+                          {y}
+                        </option>
+                      ))}
                     </select>
                   </div>
 

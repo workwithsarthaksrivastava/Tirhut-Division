@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Scheme, MonthlyProgress, SubmissionStatus } from "../types";
+import { Scheme, MonthlyProgress, SubmissionStatus, ALL_YEARS, ALL_MONTHS } from "../types";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import {
@@ -654,9 +654,9 @@ export default function SchemeForm({
                 <select
                   value={selectedMonth}
                   onChange={(e) => setSelectedMonth(e.target.value)}
-                  className="bg-transparent outline-none cursor-pointer"
+                  className="bg-slate-900 border border-slate-800 rounded px-1.5 py-0.5 text-xs text-slate-200 outline-none cursor-pointer"
                 >
-                  {["January", "February", "March", "April", "May", "June"].map((m) => (
+                  {ALL_MONTHS.map((m) => (
                     <option key={m} value={m}>
                       {m}
                     </option>
@@ -666,10 +666,13 @@ export default function SchemeForm({
                 <select
                   value={selectedYear}
                   onChange={(e) => setSelectedYear(e.target.value)}
-                  className="bg-transparent outline-none cursor-pointer"
+                  className="bg-slate-900 border border-slate-800 rounded px-1.5 py-0.5 text-xs text-slate-200 outline-none cursor-pointer"
                 >
-                  <option value="2026">2026</option>
-                  <option value="2025">2025</option>
+                  {ALL_YEARS.map((y) => (
+                    <option key={y} value={y}>
+                      {y}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -1676,10 +1679,10 @@ export default function SchemeForm({
                       return (
                         <tr key={record.id} style={{ color: "#334155" }}>
                           <td className="py-2 px-3 font-semibold" style={{ color: "#0f172a" }}>{record.district}</td>
-                          <td className="py-2 px-3 font-mono" style={{ color: "#334155" }}>
-                            <div className="font-bold" style={{ color: "#0f172a" }}>{scRef?.code || record.schemeId.toUpperCase()}</div>
+                          <td className="py-2 px-3 font-mono" style={{ color: "#0f172a" }}>
+                            <div className="font-bold text-[11px]" style={{ color: "#0f172a" }}>{scRef?.code || record.schemeId.toUpperCase()}</div>
                             {scRef?.name && (
-                              <div className="text-[9px] font-sans text-slate-500 leading-normal max-w-[210px]" style={{ color: "#475569", whiteSpace: "normal", wordBreak: "break-word" }}>
+                              <div className="text-[10px] font-sans font-semibold leading-relaxed max-w-[210px]" style={{ color: "#0f172a", whiteSpace: "normal", wordBreak: "break-word" }}>
                                 {scRef.name}
                               </div>
                             )}
