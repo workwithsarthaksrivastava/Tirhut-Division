@@ -12,6 +12,11 @@ const PORT = 3000;
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`[Request] ${req.method} ${req.url}`);
+  next();
+});
+
 // Initialize Google Gen AI with safety and fallback
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY || "",
