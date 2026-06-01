@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Tirhut division cultural colors */
+  --color-saffron: #D95D16;
+  --color-saffron-light: #F79256;
+  --color-saffron-dark: #9E3A00;
+  
+  --color-terracotta: #A52A2A;
+  --color-crimson-sindoor: #9B1B1B;
+  --color-crimson-dark: #581010;
+  
+  --color-ivory-cream: #FAF6E9;
+  --color-marigold-gold: #D97706;
+  
+  --color-cultural-dark: #1F100D;
+  --color-cultural-darker: #130907;
+  --color-cultural-card-dark: #261511;
+}
+
+@layer utilities {
+  .border-madhubani {
+    border: 4px double #D95D16;
+  }
+  .border-madhubani-crimson {
+    border: 4px double #9B1B1B;
+  }
+  .border-madhubani-dual {
+    border: 3px solid #D95D16;
+    outline: 1px solid #A52A2A;
+    outline-offset: -2px;
+  }
+}
+
+
